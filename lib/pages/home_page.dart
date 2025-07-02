@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_list/utils/dialogbox.dart';
 import 'package:to_do_list/utils/to_do_tile.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,6 +10,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // text contoller
+  final _contoller = TextEditingController();
+  //to do list
   List todolist = [
     ['Do Exercise', false],
     ['Make Breakfast', false],
@@ -20,6 +24,31 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  //save task to todo list
+  void savenewtask() {
+    setState(() {
+      todolist.add([_contoller.text, false]);
+      _contoller.clear();
+    });
+    Navigator.of(context).pop();
+  }
+
+  // add new task
+  void createnewtask() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialogbox(
+          controller: _contoller,
+          save: savenewtask,
+          cancel: () {
+            Navigator.of(context).pop();
+          },
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +56,13 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('To-Do List', style: TextStyle(color: Colors.white)),
         backgroundColor: Color(0xff011A27),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xff011A27),
+        onPressed: () {
+          createnewtask();
+        },
+        child: Icon(Icons.add, color: Colors.white),
       ),
       body: ListView.builder(
         itemBuilder: (context, index) {

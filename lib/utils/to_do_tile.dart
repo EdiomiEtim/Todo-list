@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ToDoTile extends StatelessWidget {
   final String taskname;
   final bool taskcompleted;
-  Function(bool?)? onchanged;
+  final Function(bool?)? onchanged;
   ToDoTile({
     super.key,
     required this.taskname,
@@ -31,7 +31,18 @@ class ToDoTile extends StatelessWidget {
             // splashRadius: 20,
           ),
           //task name
-          Text(taskname, style: TextStyle(color: Colors.white)),
+          Text(
+            taskname,
+            style: TextStyle(
+              color: Colors.white,
+              decoration:
+                  taskcompleted
+                      ? TextDecoration.lineThrough
+                      : TextDecoration.none,
+              decorationColor: Colors.white,
+              decorationThickness: 2.5,
+            ),
+          ),
         ],
       ),
     );

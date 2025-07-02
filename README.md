@@ -1,16 +1,18 @@
-# to_do_list
+# To-Do List App
 
-A new Flutter project.
+This is a simple **To-Do List mobile app** built using **Flutter**. It allows users to keep track of their daily tasks with an interactive checkbox system and a clean, minimal UI.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Add daily tasks (feature coming soon)
+- Mark tasks as completed 
+- Automatically strikes through completed tasks
+- Color-themed UI with styled checkboxes and text
+- Fully responsive using Flutter’s `ListView.builder`
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
+## To-Do List Home Screen
+![To-Do List Home Screen](assets/images/to-do _ist_addbox.jpg)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## To-Do List Add New Task
+![To-Do List Task Tile](assets/images/to-do _ist_tile.jpg)
